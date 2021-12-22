@@ -67,9 +67,9 @@ void app_main(void)
 
     //
 
-    ESP_LOGI(TAG, "Adding external Flash as a partition, label=\"%s\", size=%d KB", "ext_flash", ext_flash->size / 1024 - 1);
+    ESP_LOGI(TAG, "Adding external Flash as a partition, label=\"%s\", size=%d KB", "ext_flash", ext_flash->size / 1024);
     const esp_partition_t *fat_partition;
-    ESP_ERROR_CHECK(esp_partition_register_external(ext_flash, 0, ext_flash->size - 1, "ext_flash", ESP_PARTITION_TYPE_DATA, ESP_PARTITION_SUBTYPE_DATA_FAT, &fat_partition));
+    ESP_ERROR_CHECK(esp_partition_register_external(ext_flash, 0, ext_flash->size, "ext_flash", ESP_PARTITION_TYPE_DATA, ESP_PARTITION_SUBTYPE_DATA_FAT, &fat_partition));
 
     //
 
